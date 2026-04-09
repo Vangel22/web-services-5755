@@ -31,8 +31,8 @@ const updateVehicle = async (req, res) => {
     vehicles = vehicles.map((vehicle, index) => {
       if (vehicleId === index) {
         return {
-          ...vehicle,
-          ...req.body,
+          ...vehicle, // name: "Mercedes"
+          ...req.body, // name: "Audi"
         };
       }
       return vehicle; // ako ne go napravime ovoj del ke imame null podatoci vo data.json

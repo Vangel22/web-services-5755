@@ -1,0 +1,11 @@
+{
+  "type": "car",
+  "bodyType": "SUV",
+  "brand": "Toyota",
+  "model": "RAV4",
+  "year": 2022,
+  "mileage": 15000,
+  "color": "white",
+  "fuelType": "hybrid",
+  "transmission": "automatic"
+}
