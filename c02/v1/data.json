@@ -1,0 +1,67 @@
+[
+  {
+    "type": "car",
+    "brand": "Toyota",
+    "model": "RAV4",
+    "year": 2021,
+    "mileage": 32000,
+    "color": "white",
+    "powertrain": {
+      "fuelType": "petrol",
+      "isHybrid": true,
+      "isElectric": false
+    },
+    "transmission": "automatic",
+    "specs": {
+      "bodyType": "SUV"
+    }
+  },
+  {
+    "type": "truck",
+    "brand": "Volvo",
+    "model": "FH16",
+    "year": 2019,
+    "mileage": 450000,
+    "color": "blue",
+    "powertrain": {
+      "fuelType": "diesel"
+    },
+    "transmission": "manual",
+    "specs": {
+      "axles": 3,
+      "payloadCapacityKg": 25000
+    }
+  },
+  {
+    "type": "motorbike",
+    "brand": "Yamaha",
+    "model": "MT-07",
+    "year": 2022,
+    "mileage": 8000,
+    "color": "black",
+    "powertrain": {
+      "fuelType": "petrol"
+    },
+    "transmission": "manual",
+    "specs": {
+      "engineCc": 689,
+      "bikeType": "naked"
+    }
+  },
+  {
+    "type": "tractor",
+    "brand": "John Deere",
+    "model": "6155M",
+    "year": 2020,
+    "mileage": 3500,
+    "color": "green",
+    "powertrain": {
+      "fuelType": "diesel"
+    },
+    "transmission": "automatic",
+    "specs": {
+      "horsepower": 155,
+      "drive": "4WD"
+    }
+  }
+]
