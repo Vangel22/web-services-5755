@@ -23,7 +23,6 @@ const getAllAccounts = async (req, res) => {
 
 const createNewAccount = async (req, res) => {
   try {
-    // TODO: use bcryptjs
     await validateAccount(req.body, AccountCreate);
     // za da se spreci povik do databazata koj ne kosta pari, vreme, performans na aplikacijata
 

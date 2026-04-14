@@ -6,6 +6,7 @@ const AccountCreate = {
   username: "required|string",
   email: "required|email",
   password: "required|string",
+  // year: "required|integer",
 };
 
 // required ne treba da imame ovde za da ima fleksibilnost sekoe pole pri promena
