@@ -14,6 +14,10 @@ const createAccount = async (accountData) => {
   return await newAccount.save();
 };
 
+const getByEmail = async (email) => {
+  return await Account.findOne({ email });
+};
+
 // Read
 const getAccounts = async () => {
   return await Account.find();
@@ -31,6 +35,7 @@ const removeAccount = async (_id) => {
 
 module.exports = {
   createAccount,
+  getByEmail,
   getAccounts,
   updateAccount,
   removeAccount,
