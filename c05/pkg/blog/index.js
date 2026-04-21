@@ -17,21 +17,34 @@ const postSchema = mongoose.Schema({
 
 const Post = mongoose.model("Post", postSchema, "posts");
 
+// Pronajdi gi site postovi za odreden korisnik koj gi ima napraveno
 const getAllByUser = async (createdBy) => {
-  return await Post.find({ createdBy });
-  //   .populate({
-  //     path: "createdBy",
-  //     select: "username",
-  //   });
+  return await Post.find({ createdBy }).populate({
+    path: "createdBy",
+    select: "username",
+  });
 };
 
-const getSingle = async () => {};
+// proverkata ke bide kaj handlerot
+const getSingle = async (_id) => {
+  return await Post.findOne({ _id });
+};
 
-const create = async () => {};
+// ke vnimavame vo handlerot
+const create = async (data) => {
+  const newPost = new Post(data);
+  return await newPost.save();
+};
 
-const update = async () => {};
+// ke vnimavame vo handlerot
+const update = async (_id, data) => {
+  return await Post.updateOne({ _id }, data);
+};
 
-const remove = async () => {};
+// ke vnimavame vo handlerot
+const remove = async (_id) => {
+  return await Post.deleteOne({ _id });
+};
 
 module.exports = {
   getAllByUser,

@@ -7,15 +7,12 @@ const {
   updateAccount,
 } = require("../pkg/account/accounts");
 const { getSection } = require("../pkg/config/index");
-const {
-  validateAccount,
-  AccountLogin,
-  AccountRegister,
-} = require("../pkg/account/validate");
+const { AccountLogin, AccountRegister } = require("../pkg/account/validate");
+const { validateSchema } = require("../helper/validation");
 
 const login = async (req, res) => {
   try {
-    await validateAccount(req.body, AccountLogin);
+    await validateSchema(req.body, AccountLogin);
     const { email, password } = req.body;
 
     const account = await getByEmail(email);
@@ -53,6 +50,7 @@ const login = async (req, res) => {
       exp: new Date() / 1000 + 7 * 24 * 60 * 60,
       // exp ke bide 7 denovi vo idnina odkako sme se logirale
     };
+    // vo req.auth go imame celiot payload
 
     const token = jwt.sign(payload, getSection("development").jwt_secret);
 
@@ -68,7 +66,7 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    await validateAccount(req.body, AccountRegister);
+    await validateSchema(req.body, AccountRegister);
     const { username, email, password, confirmPassword } = req.body;
 
     const accountExists = await getByEmail(email);

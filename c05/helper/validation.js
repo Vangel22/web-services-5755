@@ -11,3 +11,5 @@ const validateSchema = async (data, schema) => {
     };
   }
 };
+
+module.exports = { validateSchema };
