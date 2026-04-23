@@ -4,6 +4,8 @@ const validateSchema = async (data, schema) => {
   const validator = new Validator(data, schema);
   const validationChecker = await validator.check();
 
+  console.log("error", validator.errors);
+
   if (!validationChecker) {
     throw {
       code: 400,

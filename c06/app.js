@@ -11,6 +11,7 @@ const {
   createEvent,
   updateEvent,
   deleteEvent,
+  joinEvent,
 } = require("./handlers/events");
 
 const app = express();
@@ -31,6 +32,7 @@ app.get("/events/:id", getEventById);
 app.post("/events", createEvent);
 app.put("/events/:id", updateEvent);
 app.delete("/events/:id", deleteEvent);
+app.post("/join/:id/:attendeeId", joinEvent);
 
 app.post("/auth/login", login);
 app.post("/auth/register", register);

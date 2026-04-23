@@ -25,18 +25,18 @@ const getById = async (_id) => {
   return await Organization.findOne({ _id });
 };
 
-const getByName = (name) => {
+const getByName = async (name) => {
   return await Organization.findOne({ name });
-}
+};
 
 const create = async (data) => {
-    const newOrganization = new Organization(data);
-    return await newOrganization.save();
-}
+  const newOrganization = new Organization(data);
+  return await newOrganization.save();
+};
 
 module.exports = {
-    get,
-    getById,
-    getByName,
-    create
-}
+  get,
+  getById,
+  getByName,
+  create,
+};

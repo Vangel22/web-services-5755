@@ -20,6 +20,7 @@ const eventSchema = mongoose.Schema({
   ticketsAvailable: {
     type: Number,
     required: true,
+    default: 100,
   },
   createdBy: {
     type: mongoose.SchemaTypes.ObjectId,
@@ -74,6 +75,7 @@ const remove = async (_id, organizationId) => {
 
 //http://karti.com.mk/eTickets/TicketList.aspx?pEventID=7581
 const addAttendee = async (eventId, organizationId, accountId) => {
+  console.log("test", eventId, organizationId, accountId);
   return await Event.updateOne(
     { _id: eventId, organizationId }, // filter
     { $push: { attendees: accountId } }, // set

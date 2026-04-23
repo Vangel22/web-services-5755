@@ -1,5 +1,12 @@
 const { validateSchema } = require("../helper/validation");
-const { get, getById, create, update, remove } = require("../pkg/event/index");
+const {
+  get,
+  getById,
+  create,
+  update,
+  remove,
+  addAttendee,
+} = require("../pkg/event/index");
 const { EventCreate, EventUpdate } = require("../pkg/event/validate");
 
 const getAllEvents = async (req, res) => {
@@ -41,6 +48,7 @@ const createEvent = async (req, res) => {
       organizationId: req.auth.organizationId, // istoto vazi i ovde, moze da bide samo organization
     };
 
+    console.log("data", data);
     const newEvent = await create(data);
     return res.status(200).send(newEvent);
   } catch (err) {
@@ -79,6 +87,26 @@ const deleteEvent = async (req, res) => {
 
 const joinEvent = async (req, res) => {
   try {
+    const { id, attendeeId } = req.params;
+    const userId = req.auth.id;
+
+    const event = await getById(id, req.auth.organizationId);
+
+    if (!event) {
+      return res.status(404).send("Event not found!");
+    }
+
+    if (event.createdBy.toString() !== userId.toString()) {
+      return res.status(400).send("You are not the owner of this event!");
+    }
+
+    // ticketsAvailable treba da se namaluva na sekoj joined attendee
+    if (event.ticketsAvailable <= event.attendees.length) {
+      return res.status(400).send("Not enough tickets!");
+    }
+
+    await addAttendee(id, req.auth.organizationId, attendeeId);
+    return res.status(200).send("Successfully joined the event!");
   } catch (err) {
     console.log(err);
     return res.status(500).send("Invalid Server Error");

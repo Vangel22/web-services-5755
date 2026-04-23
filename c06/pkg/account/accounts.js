@@ -12,10 +12,12 @@ const accountSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+  // organizationId se popolnuva vo momentot na registracija:
+  //  - preku /auth/register (kreiranje na nova organizacija)
   organizationId: {
     type: mongoose.SchemaTypes.ObjectId,
-    required: true,
     ref: "Organization",
+    required: true,
   },
 });
 
