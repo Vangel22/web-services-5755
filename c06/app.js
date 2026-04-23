@@ -6,11 +6,12 @@ connectDB();
 const { getSection } = require("./pkg/config/index");
 const { login, register } = require("./handlers/auth");
 const {
-  getAllPosts,
-  createPost,
-  updatePost,
-  removePost,
-} = require("./handlers/posts");
+  getAllEvents,
+  getEventById,
+  createEvent,
+  updateEvent,
+  deleteEvent,
+} = require("./handlers/events");
 
 const app = express();
 
@@ -25,13 +26,14 @@ app.use(
   }),
 );
 
+app.get("/events", getAllEvents);
+app.get("/events/:id", getEventById);
+app.post("/events", createEvent);
+app.put("/events/:id", updateEvent);
+app.delete("/events/:id", deleteEvent);
+
 app.post("/auth/login", login);
 app.post("/auth/register", register);
-
-app.get("/posts", getAllPosts);
-app.post("/posts", createPost);
-app.put("/posts/:id", updatePost);
-app.delete("/posts/:id", removePost);
 
 app.listen(getSection("development").port, () =>
   console.log(`Server started at port ${getSection("development").port}`),

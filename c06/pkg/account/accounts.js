@@ -12,7 +12,14 @@ const accountSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+  organizationId: {
+    type: mongoose.SchemaTypes.ObjectId,
+    required: true,
+    ref: "Organization",
+  },
 });
+
+// Account - Organization - Event
 
 const Account = mongoose.model("Account", accountSchema, "accounts");
 

@@ -43,6 +43,8 @@ const login = async (req, res) => {
       username: account.username,
       email: account.email,
       id: account._id,
+      organizationId: account.organizationId,
+      testiram: "da testiram",
       // new Date() - Od 1vi Januari 1970 Unix do denes 16ti April 2026 - go vrakja vremeto vo milisekundi
       // new Date() / 1000 -> Od 1vi Januari 1970 vo sekundi do denes 16ti April 2026
       // 7 * 24 * 60 * 60 -> 7 denovi po 24 chasa po 60 minuti po 60 sekundi
