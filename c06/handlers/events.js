@@ -48,7 +48,6 @@ const createEvent = async (req, res) => {
       organizationId: req.auth.organizationId, // istoto vazi i ovde, moze da bide samo organization
     };
 
-    console.log("data", data);
     const newEvent = await create(data);
     return res.status(200).send(newEvent);
   } catch (err) {
@@ -87,8 +86,8 @@ const deleteEvent = async (req, res) => {
 
 const joinEvent = async (req, res) => {
   try {
-    const { id, attendeeId } = req.params;
-    const userId = req.auth.id;
+    const { id, attendeeId } = req.params; // eventId i id na toj sto treba da prisistvuva kako attendeeId
+    const userId = req.auth.id; // toj sto isprakja baranje do ovaa ruta
 
     const event = await getById(id, req.auth.organizationId);
 
