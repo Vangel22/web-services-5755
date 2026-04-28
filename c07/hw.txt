@@ -1,0 +1,12 @@
+Domasna:
+
+1. Napravete ruta za listanje na fajlovite na najaveniot korisnik
+app.get("/api/list", listFilesForUser)
+
+2. Napravete ruta za brisenje na fajlovite na najaveniot korisnik spored imeto na fajlot
+app.delete("/api/storage/:filename", removeFile);
+
+* Da razmislite -> dali moze document da bide pristapen dinamicno so []
+* Bonus - dokolku korisnikot ima samo eden fajl i go izbrise toj fajl, 
+negoviot direktorium ostanuva prazen, 
+ako direktoriumot e prazen izbrisete go i nego.
