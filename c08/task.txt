@@ -12,3 +12,8 @@ Testiranje:
 Baranje B:
 upload/download -  moze da gi dodadete i baranjata od domasnata ( list, delete )
 samo da se dodade controller i ruti vo app.js
+
+
+Baranje C:
+
+Implementirajte go Movies od domasnata vo controller, models, i app.js
