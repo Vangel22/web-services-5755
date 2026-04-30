@@ -1,0 +1,14 @@
+Da napravite aplikacija koja ke ima:
+
+Baranje A:
+
+blog - model, controller, app.js - ruti
+
+Testiranje:
+1. Najavete se kako korisnik
+2. Napravete eden post so negoviot token
+3. Prikazete go napraveniot post
+
+Baranje B:
+upload/download -  moze da gi dodadete i baranjata od domasnata ( list, delete )
+samo da se dodade controller i ruti vo app.js
