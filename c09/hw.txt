@@ -1,0 +1,9 @@
+Domasna
+
+1. Izberete characters/locations/episodes od Rick & Morty ( bilo koja ruta )
+2. Povikot treba da go napravite do bazicniot URL koj ke bide setiran vo config.json
+3. Prikazete gi podatocite so pravenje na GET baranje vo vasata aplikacija
+
+
+Bonus:
+Kade mozete da aplicirate CACHE objekt za ovaa API. Obrazlozete.
